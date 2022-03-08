@@ -1,93 +1,66 @@
 {
-  "name": "react-social-login",
-  "version": "3.4.15",
-  "description": "React Component for Login via Social Providers",
-  "main": "dist/social-login.js",
+  "name": "social-login-ts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Joe Flateau",
+  "main": "dist/index.js",
+  "module": "dist/social-login-ts.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "engines": {
-    "node": ">=6.9.4"
-  },
-  "types": "dist/types/index.d.ts",
   "scripts": {
-    "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run lint && webpack && cp -r types dist/",
-    "build:demo": "npm run lint && cd demo && webpack && cd ..",
-    "start": "bnr start",
-    "start:insecure": "bnr start:insecure",
-    "start:old": "cd demo.old && webpack-dev-server --progress --colors && cd ..",
-    "deploy": "bash \"deploy.sh\""
+    "analyze": "size-limit --why",
+    "build": "dts build",
+    "lint": "dts lint",
+    "prepare": "dts build",
+    "size": "size-limit",
+    "start": "dts watch",
+    "test": "dts test"
   },
-  "betterScripts": {
-    "start": {
-      "command": "cd demo && webpack-dev-server --https --progress --colors && cd ..",
-      "env": {
-        "NODE_ENV": "development",
-        "FB_APP_ID": "657319568198782",
-        "INSTAGRAM_REDIRECT": "https://localhost:8080"
-      }
-    },
-    "start:insecure": {
-      "command": "cd demo && webpack-dev-server --progress --colors && cd ..",
-      "env": {
-        "NODE_ENV": "development",
-        "FB_APP_ID": "657319568198782",
-        "INSTAGRAM_REDIRECT": "https://localhost:8080"
-      }
+  "husky": {
+    "hooks": {
+      "pre-commit": "dts lint"
     }
   },
-  "pre-commit": [
-    "lint"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/deepakaggarwal7/react-social-login.git"
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
-  "keywords": [
-    "social",
-    "oauth"
-  ],
-  "author": "Deepak Aggarwal <deepakaggarwal7@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/deepakaggarwal7/react-social-login/issues"
+  "jest": {
+    "testEnvironment": "node"
   },
-  "homepage": "https://github.com/deepakaggarwal7/react-social-login#readme",
-  "peerDependencies": {
-    "react": "^16 || ^17"
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=12"
+  },
+  "size-limit": [
+    {
+      "path": "dist/social-login-ts.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/social-login-ts.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/fetch-jsonp": "^1.1.0",
+    "@types/uuid": "^8.3.4",
+    "dts-cli": "^1.4.0",
+    "husky": "^7.0.4",
+    "size-limit": "^7.0.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
   },
   "dependencies": {
-    "fetch-jsonp": "1.1.3",
-    "prop-types": "15.7.2",
-    "react": "^16.13.1",
-    "uuid": "3.1.0",
-    "whatwg-fetch": "2.0.3"
-  },
-  "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-eslint": "8.0.2",
-    "babel-loader": "7.1.2",
-    "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-inline-environment-variables": "0.2.0",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-react": "6.24.1",
-    "better-npm-run": "0.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "eslint": "4.18.2",
-    "eslint-config-standard": "10.2.1",
-    "eslint-config-standard-jsx": "4.0.2",
-    "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-node": "5.2.1",
-    "eslint-plugin-promise": "3.6.0",
-    "eslint-plugin-react": "7.4.0",
-    "eslint-plugin-standard": "3.0.1",
-    "html-webpack-plugin": "2.30.1",
-    "pre-commit": "1.2.2",
-    "react-dom": "16.1.2",
-    "webpack": "3.8.1",
-    "webpack-dev-server": "3.1.11"
+    "fetch-jsonp": "^1.2.1",
+    "tiny-invariant": "^1.2.0",
+    "uuid": "^8.3.2"
   }
 }
