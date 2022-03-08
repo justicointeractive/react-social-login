@@ -1,6 +1,6 @@
 {
   "name": "social-login-ts",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "license": "MIT",
   "author": "Joe Flateau",
   "main": "dist/index.js",
@@ -17,7 +17,8 @@
     "prepare": "dts build",
     "size": "size-limit",
     "start": "dts watch",
-    "test": "dts test"
+    "test": "dts test",
+    "release": "release-it"
   },
   "husky": {
     "hooks": {
@@ -54,6 +55,7 @@
     "@types/uuid": "^8.3.4",
     "dts-cli": "^1.4.0",
     "husky": "^7.0.4",
+    "release-it": "^14.12.5",
     "size-limit": "^7.0.8",
     "tslib": "^2.3.1",
     "typescript": "^4.6.2"
