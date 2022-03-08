@@ -187,7 +187,7 @@ const generateUser: SDKGenerateUser = (response) => ({
   },
 });
 
-type FbSDKOptions = { appId: string; scope: string[]; version: string };
+type FbSDKOptions = { appId: string; scope?: string[]; version?: string };
 
 const sdk: SDKImplementation<FbSDKOptions> = {
   checkLogin,

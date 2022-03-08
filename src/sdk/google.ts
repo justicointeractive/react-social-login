@@ -177,7 +177,7 @@ const generateUser: SDKGenerateUser = (response) => {
   };
 };
 
-type GoogleSDKOptions = { appId: string; scope: string[] };
+type GoogleSDKOptions = { appId: string; scope?: string[] };
 
 const sdk: SDKImplementation<GoogleSDKOptions> = {
   checkLogin,
