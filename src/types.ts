@@ -6,9 +6,7 @@ export type SDKOptions = {
   autoLogin?: boolean;
 };
 
-export type SDKLoader<T extends Omit<SDKOptions, 'appId'>> = (
-  options: { appId: string } & T
-) => Promise<void>;
+export type SDKLoader<T extends SDKOptions> = (options: T) => Promise<void>;
 
 export type SDKUser = {
   profile: {

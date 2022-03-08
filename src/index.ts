@@ -31,7 +31,7 @@ export async function loadProviderOnce<K extends keyof SDKImplementations>(
   options: SDKOptionsType<SDKImplementations[K]>
 ) {
   const sdk = sdks[provider];
-  const loadPromise = providerLoad.get(provider) ?? sdk.login(options as any);
+  const loadPromise = providerLoad.get(provider) ?? sdk.load(options as any);
   providerLoad.set(provider, loadPromise);
   await loadPromise;
   return sdk;
