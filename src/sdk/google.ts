@@ -40,7 +40,7 @@ const load: SDKLoader<GoogleSDKOptions> = ({ appId, scope }) =>
             .init({
               client_id: appId,
               fetchBasicProfile: true,
-              scope: scope.join(' '),
+              scope: scope?.join(' ') ?? '',
             })
             .then(
               () => resolve(),
