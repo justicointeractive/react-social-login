@@ -1,7 +1,7 @@
 import sdks from './sdk';
 import { SDKImplementation } from './types';
 
-type SDKImplementations = typeof sdks;
+export type SDKImplementations = typeof sdks;
 
 export type SDKOptionsType<T> = T extends SDKImplementation<infer TOps>
   ? TOps
