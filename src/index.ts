@@ -3,7 +3,9 @@ import { SDKImplementation } from './types';
 
 type SDKImplementations = typeof sdks;
 
-type SDKOptionsType<T> = T extends SDKImplementation<infer TOps> ? TOps : never;
+export type SDKOptionsType<T> = T extends SDKImplementation<infer TOps>
+  ? TOps
+  : never;
 
 export async function socialLogin<K extends keyof SDKImplementations>(
   provider: K,
