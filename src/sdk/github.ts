@@ -19,11 +19,6 @@ let githubAccessToken: string | null = null;
 let githubAppId: string | null = null;
 let githubAuth: string | null = null;
 
-// Load fetch polyfill for browsers not supporting fetch API
-if (typeof window !== 'undefined' && !window.fetch) {
-  require('whatwg-fetch');
-}
-
 /**
  * Fake Github SDK loading (needed to trick RSL into thinking its loaded).
  */
