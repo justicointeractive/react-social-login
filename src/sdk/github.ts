@@ -70,7 +70,7 @@ const load: SDKLoader<GithubSDKOptions> = ({
 
       githubAuth = `https://github.com/login/oauth/authorize?client_id=${githubAppId}&redirect_uri=${encodeURIComponent(
         _redirect.toString()
-      )}&scope=${githubScopes}&state=${uuid(redirect, uuid.URL)}`;
+      )}&scope=${githubScopesStr}&state=${uuid(redirect, uuid.URL)}`;
 
       if (getQueryStringValue('rslCallback') === 'github') {
         getAccessToken()
